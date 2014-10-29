@@ -1,13 +1,16 @@
 
 """
 An implementation of Collatz Conjecture.
+
+Collatz Conjecture:
+    Find the steps needed to get down to number 1; if number is even, divide by 2.
+    Else multiply by 3 and add 1.
 """
 
 
 def collatz(n):
     """
-    Find the number of steps it takes to reach one using the following process: If n is even, divide it by 2.
-    If n is odd, multiply it by 3 and add 1.
+    Returns number of steps needed to reach the number 1.
     """
 
     steps = 0
@@ -24,23 +27,40 @@ def collatz(n):
 
 
 def test_collatz():
+    """
+    Test cases.
+    """
+
     assert collatz(10) == 6
     assert collatz(16) == 4
 
 
 def main():
+    """
+    Main method to run program
+    """
+
     test_collatz()
 
     userinput = int(input('Enter a number: '))
 
-    if userinput <= 1:
-        print 'Error. It does not equal what it should.'
+    if userinput < 2:
+        print "Error. Number is: %d. Steps needed are %d." % (userinput, collatz(userinput))
+        print
         main()
-        
-    print 'Using the Collatz Conjecture, it takes %d steps to get to 1 from %d.' % (collatz(userinput), userinput)
+    else:
+        print 'Using the Collatz Conjecture, it takes %d steps to get to 1 from %d.' % (collatz(userinput), userinput)
+        print
+
+if __name__ == '__main__':
+    """
+    Runs main() method.
+    """
+
+    main()
 
 
-
-main()
-
-
+#       Latest Edit:    #
+#       10/29/14        #
+#       Fixed 'print'   #
+#       statements.     #
